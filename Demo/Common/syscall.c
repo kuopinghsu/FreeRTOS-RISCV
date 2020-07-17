@@ -1,10 +1,12 @@
+#include <stdio.h>
 #include <machine/syscall.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/unistd.h>
 #include <errno.h>
+#include "printf.h"
 
-#define HAVE_SYSCALL        1
+#define HAVE_SYSCALL        0
 #define MEMIO_PUTC          0x9000001c
 #define MEMIO_EXIT          0x9000002c
 
@@ -41,9 +43,8 @@ __internal_syscall(long n, long _a0, long _a1, long _a2, long _a3, long _a4, lon
     return a0;
 }
 
-int _putchar(char ch) {
+void _putchar(char ch) {
     *(volatile char*)MEMIO_PUTC = (char)ch;
-    return 0;
 }
 
 /* Write to a file.  */

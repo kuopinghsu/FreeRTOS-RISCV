@@ -10,18 +10,20 @@ FREERTOS_SRC = \
     $(FREERTOS_SOURCE_DIR)/portable/MemMang/heap_3.c
 
 PORT_SRC = $(FREERTOS_SOURCE_DIR)/portable/GCC/RISC-V/port.c \
-           Common/syscall.c
+           Common/syscall.c \
+           Common/printf.c \
 
 PORT_ASM = $(FREERTOS_SOURCE_DIR)/portable/GCC/RISC-V/portASM.S \
            Common/crt0.S
 
-DEMO_SRC = examples/demo.c
+DEMO_SRC = examples/queue.c examples/task.c
 
 RTOS_OBJ = $(FREERTOS_SRC:.c=.o)
 PORT_OBJ = $(PORT_SRC:.c=.o)
 PORT_ASM_OBJ = $(PORT_ASM:.S=.o)
 DEMO_OBJ = $(DEMO_SRC:.c=.o)
-OBJS = $(PORT_ASM_OBJ) $(PORT_OBJ) $(RTOS_OBJ) $(DEMO_OBJ)
+OBJS = $(PORT_ASM_OBJ) $(PORT_OBJ) $(RTOS_OBJ)
+LIBRARY = libfreertos.a
 
 INCLUDES = \
     -I$(FREERTOS_SOURCE_DIR)/include \
@@ -31,9 +33,11 @@ INCLUDES = \
     -I./examples
 
 CFLAGS   = -O2 -g -Wall $(INCLUDES) $(RISCV_GCC_OPTS)
-LDFLAGS  = -T Common/link.ld $(RISCV_GCC_OPTS)
-LIBS     = -lc -lgcc
-PROG	 = demo
+LDFLAGS  = -L. -T Common/link.ld $(RISCV_GCC_OPTS)
+LIBS     = -lfreertos -lc -lgcc
+PROG	 = $(DEMO_SRC:.c=.elf)
+
+all: $(LIBRARY) $(PROG)
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
@@ -41,12 +45,13 @@ PROG	 = demo
 %.o: %.S
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-all: $(PROG).elf
+$(LIBRARY): $(PORT_ASM_OBJ) $(PORT_OBJ) $(RTOS_OBJ)
+	$(AR) rcs $@ $(PORT_ASM_OBJ) $(PORT_OBJ) $(RTOS_OBJ)
 
-$(PROG).elf: $(OBJS) Makefile
-	$(CC) -o $@ $(OBJS) $(LIBS) $(LDFLAGS)
-	$(OBJDUMP) -d $@ > $(PROG).dis
+%.elf: Makefile
+	$(CC) -o $@ $(@:.elf=.c) $(CFLAGS) $(LDFLAGS) $(LIBS)
+	$(OBJDUMP) -d $@ > $@.dis
 
 clean:
-	$(RM) -f $(OBJS) $(PROG).elf $(PROG).dis
+	$(RM) -f $(OBJS) $(LIBRARY) examples/*.elf examples/*.elf.dis
 
