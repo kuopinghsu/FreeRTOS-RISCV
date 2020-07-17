@@ -6,6 +6,7 @@ FREERTOS_SRC = \
     $(FREERTOS_SOURCE_DIR)/queue.c \
     $(FREERTOS_SOURCE_DIR)/tasks.c \
     $(FREERTOS_SOURCE_DIR)/timers.c \
+    $(FREERTOS_SOURCE_DIR)/stream_buffer.c \
     $(FREERTOS_SOURCE_DIR)/event_groups.c \
     $(FREERTOS_SOURCE_DIR)/portable/MemMang/heap_3.c
 
@@ -16,7 +17,9 @@ PORT_SRC = $(FREERTOS_SOURCE_DIR)/portable/GCC/RISC-V/port.c \
 PORT_ASM = $(FREERTOS_SOURCE_DIR)/portable/GCC/RISC-V/portASM.S \
            Common/crt0.S
 
-DEMO_SRC = examples/queue.c examples/task.c
+DEMO_SRC = examples/queue.c \
+           examples/task.c \
+           examples/sem.c
 
 RTOS_OBJ = $(FREERTOS_SRC:.c=.o)
 PORT_OBJ = $(PORT_SRC:.c=.o)
