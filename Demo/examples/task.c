@@ -39,7 +39,7 @@ void vTaskTest2( void * pvParameters )
         printf("+");
     }
 
-    exit(-1);
+    exit(0);
 }
 
 /* Function that creates a task. */
