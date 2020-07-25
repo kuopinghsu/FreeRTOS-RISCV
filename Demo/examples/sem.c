@@ -5,6 +5,7 @@
 #include "queue.h"
 #include "semphr.h"
 #include "printf.h"
+#include "common.h"
 
 #define STACK_SIZE 1024
 #define ITERATIONS 100
@@ -37,7 +38,7 @@ void vTask2( void * pvParameters )
     configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
 
     for(i=0; i<ITERATIONS; i++) {
-        if( xSemaphoreTake( xSemaphore, portMAX_DELAY ) == pdTRUE ) {
+        if( xSemaphoreTake( xSemaphore, 10 /* portMAX_DELAY */) == pdTRUE ) {
             printf("+");
         }
     }
@@ -80,7 +81,7 @@ int main( void )
 
     xReturned = xTaskCreate(
                     vTask2,          /* Function that implements the task. */
-                    "Task2",      /* Text name for the task. */
+                    "Task2",         /* Text name for the task. */
                     STACK_SIZE,      /* Stack size in words, not bytes. */
                     ( void * ) 1,    /* Parameter passed into the task. */
                     tskIDLE_PRIORITY,/* Priority at which the task is created. */
