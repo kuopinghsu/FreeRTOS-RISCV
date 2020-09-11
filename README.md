@@ -1,4 +1,4 @@
-'# FreeRTOS for RISC-V
+# FreeRTOS for RISC-V
 ------------------------------------------------------------
 This is an example to test <A Href="https://github.com/kuopinghsu/simple-riscv">simple-riscv</A> on FreeRTOS
 
