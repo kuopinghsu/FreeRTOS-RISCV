@@ -96,3 +96,9 @@ int main( void )
     return 0;
 }
 
+#if configUSE_TICK_HOOK
+void vApplicationTickHook( void )
+{
+}
+#endif
+

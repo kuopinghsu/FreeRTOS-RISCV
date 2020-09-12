@@ -86,3 +86,10 @@ int main( void )
     /* Should never get here! */
     return 0;
 }
+
+#if configUSE_TICK_HOOK
+void vApplicationTickHook( void )
+{   
+}
+#endif
+
