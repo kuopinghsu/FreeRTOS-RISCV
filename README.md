@@ -1,6 +1,6 @@
 # FreeRTOS for RISC-V
 ------------------------------------------------------------
-This is an example to test <A Href="https://github.com/kuopinghsu/simple-riscv">simple-riscv</A> on FreeRTOS
+This is an example to test <A Href="https://github.com/kuopinghsu/srv32">srv32</A> on FreeRTOS
 
 # Build
 
@@ -9,7 +9,7 @@ This is an example to test <A Href="https://github.com/kuopinghsu/simple-riscv">
 
 # Run
 
-Requirement: Install the toolchains. See details in simple-riscv <A Href="https://github.com/kuopinghsu/simple-riscv#building-toolchains">Building toolchains</A> section.
+Requirement: Install the toolchains. See details in srv32 <A Href="https://github.com/kuopinghsu/srv32#building-toolchains">Building toolchains</A> section.
 
-Clone <A Href="https://github.com/kuopinghsu/simple-riscv">simple-riscv</A> and copy the FreeRTOS's demo to simple-riscv 'sw' folder. The demo can be run in the RTL and ISS simultor of simple-riscv. See details in <A Href="https://github.com/kuopinghsu/simple-riscv#freertos-support">FreeRTOS support</A> of simple-riscv.
+Clone <A Href="https://github.com/kuopinghsu/srv32">srv32</A> and copy the FreeRTOS's demo to srv32 'sw' folder. The demo can be run in the RTL and ISS simultor of srv32. See details in <A Href="https://github.com/kuopinghsu/srv32#freertos-support">FreeRTOS support</A> of srv32.
 
