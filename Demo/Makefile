@@ -17,10 +17,7 @@ PORT_SRC = $(FREERTOS_SOURCE_DIR)/portable/GCC/RISC-V/port.c \
 PORT_ASM = $(FREERTOS_SOURCE_DIR)/portable/GCC/RISC-V/portASM.S \
            Common/crt0.S
 
-DEMO_SRC = examples/queue.c \
-           examples/task.c \
-           examples/sem.c \
-           examples/perf.c
+DEMO_SRC = $(wildcard examples/*.c)
 
 RTOS_OBJ = $(FREERTOS_SRC:.c=.o)
 PORT_OBJ = $(PORT_SRC:.c=.o)
