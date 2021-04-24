@@ -929,6 +929,13 @@ void vApplicationTickHook( void )
 }
 #endif
 
+#if configUSE_IDLE_HOOK
+void vApplicationIdleHook( void )
+{
+    /* empty */
+}
+#endif
+
 int main(void)
 {
     printf("start....\n");

@@ -38,7 +38,9 @@ LDFLAGS  = -L. -T Common/link.ld $(RISCV_GCC_OPTS)
 LIBS     = -lfreertos -lc -lgcc
 PROG	 = $(DEMO_SRC:.c=.elf)
 
-all: $(LIBRARY) $(PROG)
+.PHONY: hartstone
+
+all: $(LIBRARY) $(PROG) hartstone
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
@@ -53,6 +55,10 @@ $(LIBRARY): $(PORT_ASM_OBJ) $(PORT_OBJ) $(RTOS_OBJ)
 	$(CC) -o $@ $(@:.elf=.c) $(CFLAGS) $(LDFLAGS) $(LIBS)
 	$(OBJDUMP) -d $@ > $@.dis
 
+hartstone: Makefile
+	$(MAKE) -C hartstone
+
 clean:
 	$(RM) -f $(OBJS) $(LIBRARY) examples/*.elf examples/*.elf.dis
+	$(MAKE) -C hartstone clean
 
