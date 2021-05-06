@@ -60,6 +60,12 @@
 #define configUSE_MALLOC_FAILED_HOOK     1
 #define configCHECK_FOR_STACK_OVERFLOW   1
 
+// necessary for FreeRTOS-POSIX pthread
+#define configSUPPORT_STATIC_ALLOCATION  1
+#define configUSE_POSIX_ERRNO            1
+#define configUSE_APPLICATION_TASK_TAG   1
+#define INCLUDE_xQueueGetMutexHolder     1
+
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES 		    1
 #define configMAX_CO_ROUTINE_PRIORITIES ( 2 )

@@ -921,21 +921,6 @@ void test(void* pArg)
     exit(0);
 }
 
-/* Hook functions for standalone tests */
-#if configUSE_TICK_HOOK
-void vApplicationTickHook( void )
-{
-    clock_interrupted[indx] = 1;
-}
-#endif
-
-#if configUSE_IDLE_HOOK
-void vApplicationIdleHook( void )
-{
-    /* empty */
-}
-#endif
-
 int main(void)
 {
     printf("start....\n");

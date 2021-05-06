@@ -1,5 +1,8 @@
 
 #include "hartstone.h"
+
+#define USER_DEFINED_IDLE_HOOK
+
 #include "../examples/common.h"
 
 #if configUSE_IDLE_HOOK
@@ -10,12 +13,6 @@ void vApplicationIdleHook( void )
 }
 #else
 #error "Idle hook is required."
-#endif
-
-#if configUSE_TICK_HOOK
-void vApplicationTickHook( void )
-{
-}
 #endif
 
 int main(void) {

@@ -96,16 +96,3 @@ int main( void )
     return 0;
 }
 
-#if configUSE_TICK_HOOK
-void vApplicationTickHook( void )
-{
-    /* empty */
-}
-#endif
-
-#if configUSE_IDLE_HOOK
-void vApplicationIdleHook( void )
-{
-    /* empty */
-}
-#endif
