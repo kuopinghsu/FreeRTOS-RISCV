@@ -1,12 +1,5 @@
 
-// An simple program to test FreeRTOS pthread
-#include "FreeRTOS.h"
-#include "FreeRTOS_POSIX/pthread.h"
-#include "FreeRTOS_POSIX/mqueue.h"
-#include "FreeRTOS_POSIX/time.h"
-#include "FreeRTOS_POSIX/fcntl.h"
-#include "FreeRTOS_POSIX/errno.h"
-
+#include "pthread_init.h"
 #include "printf.h"
 #include "common.h"
 
@@ -60,19 +53,4 @@ void test(void *param)
     exit(0);
 }
 
-int main(void) {
-    printf( "FreeRTOS POSIX demo\n" );
-
-    /* Start the task to run POSIX demo */
-    xTaskCreate(test,
-                "test",
-                configMINIMAL_STACK_SIZE,
-                NULL,
-                tskIDLE_PRIORITY + 4,
-                NULL );
-
-    vTaskStartScheduler();
-
-    while(1);
-}
-
+PTHREAD_INIT(test);

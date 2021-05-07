@@ -2,21 +2,13 @@
 // Reference: https://www.stolaf.edu/people/rab/os/pub0/modules/Pi_Integration_SharedMemory/Pthreads/Pthreads.html
 // This is an example to test FreeRTOS pthread
 
-/* FreeRTOS includes. */
-#include "FreeRTOS_POSIX.h"
+#include "pthread_init.h"
 
 /* System headers. */
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
-
-/* FreeRTOS+POSIX. */
-#include "FreeRTOS_POSIX/pthread.h"
-#include "FreeRTOS_POSIX/mqueue.h"
-#include "FreeRTOS_POSIX/time.h"
-#include "FreeRTOS_POSIX/fcntl.h"
-#include "FreeRTOS_POSIX/errno.h"
 
 #include "printf.h"
 #include "common.h"
@@ -71,23 +63,4 @@ pi_test (void *param)
     exit(0);
 }
 
-int
-main (void)
-{
-
-    printf( "FreeRTOS POSIX demo\n" );
-
-    /* Start the task to run POSIX demo */
-    xTaskCreate( pi_test,
-                 "posix",
-                 configMINIMAL_STACK_SIZE,
-                 NULL,
-                 mainPOSIX_DEMO_PRIORITY,
-                 NULL );
-
-    vTaskStartScheduler();
-
-    /* Should never get here! */
-    return 0;
-}
-
+PTHREAD_INIT(pi_test);
