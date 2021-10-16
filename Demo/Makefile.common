@@ -1,6 +1,6 @@
 RISCV_PREFIX        = riscv64-unknown-elf-
 ROOTDIR             = $(shell cd .. && pwd)
-FREERTOS_SOURCE_DIR = $(ROOTDIR)/Source
+FREERTOS_SOURCE_DIR = $(ROOTDIR)/FreeRTOS-Kernel
 FREERTOS_POSIX_DIR  = $(ROOTDIR)/FreeRTOS-POSIX
 
 AR                  = $(RISCV_PREFIX)ar

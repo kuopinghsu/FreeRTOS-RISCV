@@ -1,7 +1,7 @@
 include ../Makefile.common
 
 ROOTDIR             = $(shell cd ../.. && pwd)
-FREERTOS_SOURCE_DIR = $(ROOTDIR)/Source
+FREERTOS_SOURCE_DIR = $(ROOTDIR)/FreeRTOS-Kernel
 
 EXE      = .elf
 SRC      = global.c hartstone.c whetstone.c main.c
