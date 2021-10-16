@@ -1,5 +1,5 @@
 FREERTOS_VER ?= V10.4.5
-FREERTOS_POSIX_VER ?= v1.0
+FREERTOS_POSIX_VER ?= master
 
 all: check
 	make -C Demo
