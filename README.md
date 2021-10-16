@@ -4,7 +4,7 @@ This is an example to test <A Href="https://github.com/kuopinghsu/srv32">srv32</
 
 # Build
 
-    git clone --recursive https://github.com/kuopinghsu/FreeRTOS-RISCV
+    git clone https://github.com/kuopinghsu/FreeRTOS-RISCV
     cd FreeRTOS-RISCV && make
 
 # Folder Lists
