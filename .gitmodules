@@ -1,6 +1,0 @@
-[submodule "Source"]
-	path = Source
-	url = https://github.com/FreeRTOS/FreeRTOS-Kernel
-[submodule "FreeRTOS-POSIX"]
-	path = FreeRTOS-POSIX
-	url = https://github.com/FreeRTOS/Lab-Project-FreeRTOS-POSIX
