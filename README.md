@@ -1,5 +1,8 @@
 # FreeRTOS for RISC-V
 ------------------------------------------------------------
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ecad86ff13ea4750814d0c717d452cd6)](https://www.codacy.com/gh/kuopinghsu/FreeRTOS-RISCV/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kuopinghsu/FreeRTOS-RISCV&amp;utm_campaign=Badge_Grade)
+
 This is an example to test <A Href="https://github.com/kuopinghsu/srv32">srv32</A> on FreeRTOS
 
 # Build
