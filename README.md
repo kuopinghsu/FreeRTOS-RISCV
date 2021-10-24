@@ -15,7 +15,7 @@ This is an example to test <A Href="https://github.com/kuopinghsu/srv32">srv32</
 | Folder / File               | Description                                     |
 | --------------------------- | ----------------------------------------------- |
 | FreeRTOS-POSIX/             | FreeRTOS POSIX pthread source                   |
-| Source/                     | FreeRTOS kernel source                          |
+| FreeRTOS-Kernel/            | FreeRTOS kernel source                          |
 | Demo/examples/perf.c        | performance test                                |
 | Demo/examples/pi_pthread.c  | PI pthread example                              |
 | Demo/examples/pthread.c     | pthread example                                 |
