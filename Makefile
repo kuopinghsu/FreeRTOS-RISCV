@@ -1,4 +1,4 @@
-FREERTOS_VER ?= V10.4.5
+FREERTOS_VER ?= V10.4.6
 FREERTOS_POSIX_VER ?= master
 
 all: check
