@@ -11,16 +11,21 @@ MEMORY
 SECTIONS
 {
   /* text: test code section */
-  .text :
+  .reset :
   {
     _text_start = .;
     _start = .;
     *(.reset)
+  } > imem
+
+  .text :
+  {
     *(.text .stub .text.* .gnu.linkonce.t.*)
     KEEP (*(.text.*personality*))
     *(.gnu.warning)
-    _text_end = .;
   } > imem
+
+  _text_end = .;
 
   /* data segment */
   .data :
@@ -43,6 +48,8 @@ SECTIONS
     LONG(0)
     __DTOR_END__ = .;
 
+    *(.eh_frame_hdr) *(.eh_frame_entry .eh_frame_entry.*)
+    KEEP (*(.eh_frame)) *(.eh_frame.*)
     KEEP (*(.gcc_except_table)) *(.gcc_except_table.*)
 
     *(.srodata .srodata.* .gnu.linkonce.r.*)

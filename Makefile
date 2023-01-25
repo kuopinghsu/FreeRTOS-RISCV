@@ -1,5 +1,5 @@
 FREERTOS_VER ?= V10.4.6
-FREERTOS_POSIX_VER ?= 85ce51d
+FREERTOS_POSIX_VER ?= b62f30b
 
 all: check
 	make -C Demo
