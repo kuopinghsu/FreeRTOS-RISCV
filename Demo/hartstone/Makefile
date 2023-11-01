@@ -29,11 +29,8 @@ all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $(OUTPUT) $(OBJECTS) $(LDFLAGS)
-	$(OBJCOPY) -j .text -O binary $(OUTPUT) imem.bin
-	$(OBJCOPY) -j .data -O binary $(OUTPUT) dmem.bin
-	$(OBJCOPY) -O binary $(OUTPUT) memory.bin
 	$(OBJDUMP) -d $(OUTPUT) > $(TARGET).dis
 	$(READELF) -a $(OUTPUT) > $(TARGET).symbol
 
 clean:
-	$(RM) *.o $(OUTPUT) $(OBJECTS) $(TARGET).dis $(TARGET).symbol [id]mem.bin memory.bin
+	$(RM) *.o $(OUTPUT) $(OBJECTS) $(TARGET).dis $(TARGET).symbol

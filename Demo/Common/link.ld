@@ -1,11 +1,13 @@
 OUTPUT_ARCH( "riscv" )
 ENTRY(_start)
 _start = 0;
+_MEMSIZE = 256K;
+_START_ADDR = 0x00000000;
 
 MEMORY
 {
-  imem : ORIGIN = 0x00000000, LENGTH = 128K
-  dmem : ORIGIN = 0x00000000+128K, LENGTH = 128K
+  imem : ORIGIN = _START_ADDR, LENGTH = _MEMSIZE
+  dmem : ORIGIN = _START_ADDR + _MEMSIZE, LENGTH = _MEMSIZE
 }
 
 SECTIONS
@@ -80,8 +82,8 @@ SECTIONS
     _end        = .;
   } > dmem
 
-  PROVIDE(__freertos_irq_stack_top = (128K * 2 - 8K));
-  PROVIDE(_stack = (128K * 2));
+  PROVIDE(__freertos_irq_stack_top = (_MEMSIZE * 2 - 8K));
+  PROVIDE(_stack = (_MEMSIZE * 2));
 
   /DISCARD/ : { *(.note.GNU-stack) }
 

@@ -54,3 +54,5 @@ dkms.conf
 FreeRTOS-Kernel/
 FreeRTOS-POSIX/
 
+*.dis
+*.symbol
