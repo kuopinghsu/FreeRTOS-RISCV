@@ -7,10 +7,10 @@
 #define HAVE_SYSCALL        0
 #define HAVE_TOHOST         1
 
-#define MEMIO_PUTC          0x9000001c
-#define MEMIO_GETC          0x90000020
-#define MEMIO_EXIT          0x9000002c
-#define MEMIO_TOHOST        0x90000030
+#define MEMIO_PUTC          0xa000001c
+#define MEMIO_GETC          0xa0000020
+#define MEMIO_EXIT          0xa000002c
+#define MEMIO_TOHOST        0xa0000030
 
 // system call defined in the file /usr/include/asm-generic/unistd.h
 enum {
