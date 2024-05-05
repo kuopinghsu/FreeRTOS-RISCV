@@ -1,5 +1,5 @@
-FREERTOS_VER ?= V10.4.6
-FREERTOS_POSIX_VER ?= b62f30b
+FREERTOS_VER ?= V11.1.0
+FREERTOS_POSIX_VER ?= e921c4f
 
 all: check
 	make -C Demo
